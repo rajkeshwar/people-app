@@ -1,0 +1,74 @@
+<div class="home-wpr">
+  <div class="home">
+    <div class="home__sidebar">
+      <div class="searchbar form-control">
+        <i class="fa fa-search"></i>
+        <input type="search" name="search" [(ngModel)]="search">
+        <i class="fa fa-times"></i>
+      </div>
+      <div class="navbox">
+        <ul class="navlist">
+          <li class="navlist__item" 
+            [class.active]="people.isActive"
+            *ngFor="let people of peoples | filter:search" (click)="setActive(people)">
+            {{people.name}}
+            <i class="fa fa-caret-right"></i>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="home__right">
+      <div class="top">
+        <span class="user--name">Peter Hong</span>
+        <i class="fa fa-user"></i>
+        <i class="fa fa-caret-down"></i>
+      </div>
+      <div class="middle">
+        <div class="profile">
+          <div class="profile__img">
+            <img [src]="activePeople.img" alt="activePeople.name">
+          </div>
+          <div class="profile__rate">
+            <button class="btn btn-primary">Send Message</button>
+            <div class="hearts">
+              <i class="fa fa-heart"></i>
+              <i class="fa fa-heart"></i>
+              <i class="fa fa-heart"></i>
+              <i class="fa fa-heart-o"></i>
+              <i class="fa fa-heart-o"></i>
+            </div>
+          </div>
+        </div>
+        <div class="profile__quote">
+          <p class="quote">Lorem, ipsum dolor sit amet consectetur adipisicing elit.</p>
+        </div>
+        <div class="profile__table">
+          <table class="table table-striped table-bordered">
+            <thead>
+              <tr>
+                <th scope="col">Likes</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let like of activePeople.Likes">
+                <td>{{like}}</td>
+              </tr>
+            </tbody>
+          </table>
+          <table class="table table-striped table-bordered">
+              <thead>
+                <tr>
+                  <th scope="col">Dislikes</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let dislike of activePeople.Dislikes">
+                  <td>{{dislike}}</td>
+                </tr>
+              </tbody>
+            </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

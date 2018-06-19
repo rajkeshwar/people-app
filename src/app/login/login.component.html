@@ -1,0 +1,16 @@
+<div class="login-wpr">
+  <div class="login">
+    <h2>Login here</h2>
+    <div class="login__group">
+      <label for="username">Username</label>
+      <input type="text" name="username" [(ngModel)]="user.name">
+    </div>
+    <div class="login__group">
+        <label for="username">Password</label>
+        <input type="password" name="password" [(ngModel)]="user.pass">
+      </div>
+      <div class="login__btn">
+        <button (click)="login()" class="btn btn-primary">Login</button>
+      </div>
+  </div>
+</div>
